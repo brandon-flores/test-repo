@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
@@ -24,34 +25,43 @@ export default function Home() {
       <header className="flex flex-row justify-between p-6 bg-white">
         <Button
           variant="ghost"
-          className="flex flex-row space-x-2 items-center p-0"
+          className="flex flex-row space-x-3 items-center p-0"
         >
-          <Image src={DiamondSVG} alt="ML logo" /> <span>Back to Home</span>
+          <Image src={DiamondSVG} alt="ML logo" />{" "}
+          <span className="text-sm">Back to Home</span>
         </Button>
-        <span className="flex items-center">Buy eLoad</span>
-        <div className="flex flex-row">
-          <Button variant="ghost">Tracking</Button>
-          <Button variant="ghost">Help</Button>
+        <span className="flex items-center text-2xl font-bold">Buy eLoad</span>
+        <div className="flex flex-row space-x-5">
+          <Button variant="ghost" className="text-sm p-2">
+            Tracking
+          </Button>
+          <Button variant="ghost" className="text-sm p-2">
+            Help
+          </Button>
         </div>
       </header>
 
-      <section className="flex justify-center m-10">
-        <Card className="w-4/5 2xl:w-[750px] p-10">
-          <CardHeader>
-            <CardTitle>Recipient</CardTitle>
+      <section className="mx-4 flex justify-center m-10 md:mx-0">
+        <Card className="w-full lg:w-4/5 2xl:w-[750px] p-10 rounded-none shadow-none border-none">
+          <CardHeader className="p-0 mb-6">
+            <CardTitle className="text-md">Recipient</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-0">
             <form>
               <div className="grid w-full items-center gap-4">
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">Mobile Number</Label>
+                <div className="flex flex-col mb-4 md:w-1/2 w-full">
+                  <Label htmlFor="name" className="mb-2">
+                    Mobile Number
+                  </Label>
                   <Input id="mobile" placeholder="ex. 0917 123 4567" />
                 </div>
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="network">Network</Label>
+                <div className="flex flex-col md:w-1/2 w-full mt-0">
+                  <Label htmlFor="network" className="mb-2">
+                    Network
+                  </Label>
                   <Select>
                     <SelectTrigger id="network">
-                      <SelectValue placeholder="Select" />
+                      <SelectValue placeholder="Select Network" />
                     </SelectTrigger>
                     <SelectContent position="popper">
                       <SelectItem value="globe">Globe</SelectItem>
@@ -63,8 +73,9 @@ export default function Home() {
               </div>
             </form>
           </CardContent>
-          <CardFooter className="flex justify-end space-x-2">
-            <Button variant="outline">Back</Button>
+          <Separator className="m-0 my-10" />
+          <CardFooter className="flex justify-end space-x-2 p-0">
+            <Button variant="ghost">Back</Button>
             <Button>Next Step</Button>
           </CardFooter>
         </Card>
